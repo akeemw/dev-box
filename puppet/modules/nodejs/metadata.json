@@ -1,0 +1,41 @@
+{
+  "name": "willdurand-nodejs",
+  "version": "1.5.1",
+  "source": "UNKNOWN",
+  "author": "William Durand",
+  "license": "MIT",
+  "summary": "This module allows to install Node.js and NPM.",
+  "description": "This module allows to install Node.js and NPM.",
+  "project_page": "UNKNOWN",
+  "dependencies": [
+    {
+      "name": "puppetlabs/stdlib"
+    },
+    {
+      "name": "maestrodev/wget"
+    }
+  ],
+  "types": [
+
+  ],
+  "checksums": {
+    "LICENSE": "623195fef4352bf924f90b64b1e85bc7",
+    "Modulefile": "1ce1b50624392051f1ce18e8abbde2d8",
+    "README.md": "c1b258824a1b10a8ab3ecde23bb927f9",
+    "Rakefile": "a1a87b266213b03b33f5e006d4df7925",
+    "lib/facter/nodejs_installed_version.rb": "0419087d4f368c0cbe7c3b6f055c88cb",
+    "lib/facter/nodejs_latest_version.rb": "1c7ab620d63343090807b74b40d3cdd8",
+    "lib/facter/nodejs_stable_version.rb": "6549e7f69b2bcf4179d67a2a4705a415",
+    "lib/puppet/parser/functions/is_binary_download_available.rb": "cb2ca5297ee30e540388afd2d33c92f4",
+    "lib/puppet/parser/functions/is_npm_provided.rb": "2dd62319cccd6124c5a23c1b5491fc4b",
+    "lib/puppet/provider/package/npm.rb": "940f91240e2038636b9cb433f1f663d4",
+    "manifests/init.pp": "86c58ad12c2d5e1f30033e96bafbd0ab",
+    "manifests/install.pp": "d4c46e15ac17da8f90db959522bb8680",
+    "manifests/params.pp": "7fc6e7d502ee96a1fb54f616ca9cbab2",
+    "spec/classes/nodejs_spec.rb": "4cea62f67403f0d6c8b691f77ea4a6b7",
+    "spec/defines/nodejs_install_spec.rb": "760203810013b0b96ae88c7dde45a032",
+    "spec/functions/is_binary_download_available_spec.rb": "63efc2c54b3610e1fa713ebcea74488b",
+    "spec/functions/is_npm_provided_spec.rb": "1dd3e5f1bbda4e58884b609e32e04cef",
+    "spec/spec_helper.rb": "21926fb4b658d1036bc66b25ebb8f09b"
+  }
+}

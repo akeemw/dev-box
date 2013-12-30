@@ -1,0 +1,38 @@
+{
+  "name": "example42-git",
+  "version": "2.0.15",
+  "summary": "Puppet module for git",
+  "author": "Alessandro Franceschi",
+  "description": "This module installs and manages git. Check README for details.",
+  "dependencies": [
+    {
+      "name": "example42/puppi",
+      "version_requirement": ">= 2.0.0"
+    }
+  ],
+  "types": [
+
+  ],
+  "checksums": {
+    "LICENSE": "a300b604c66de62cf6e923cca89c9d83",
+    "Modulefile": "79d3adfbdab9dab87045a2e5b0680d6f",
+    "README.md": "bbc0b81682ae790f6d4d16e08570da23",
+    "Rakefile": "7749f3f800147c17f465a0e2213419d1",
+    "manifests/init.pp": "c83f859703c8c417826851dfa631c077",
+    "manifests/params.pp": "d9294c7f7061b2535dc94e32a8d86f8a",
+    "manifests/reposync.pp": "86285556f997ee011b6a4d6c0ab73b06",
+    "manifests/spec.pp": "9374cfe0de4ea39023b875ba84e3f863",
+    "spec/classes/git_spec.rb": "f03f2c3a6b26b52840735859d8ad1c38",
+    "spec/spec_helper.rb": "0db89c9a486df193c0e40095422e19dc",
+    "templates/reposync/git_reposync-command.erb": "5e29c6c0f6e543a3b0e7914764c13953",
+    "templates/reposync/git_reposync-cron.erb": "6f8faf269700b9b8efe8e7e7c3929a43",
+    "templates/reposync/git_reposync.erb": "b45b57fdd22bf54a1cac3fd70772fa4f",
+    "templates/spec.erb": "95554a191230174b3ba5942f8d8d5b1e",
+    "tests/absent.pp": "b28eb2888399275775dbf4e2240e7a8e",
+    "tests/disable.pp": "48a940fba3aa489dd7723bd3f1d7cc16",
+    "tests/init.pp": "761f0554781152ab10513484c1d65ef5"
+  },
+  "source": "https://github.com/example42/puppet-git",
+  "project_page": "http://www.example42.com",
+  "license": "Apache2"
+}

@@ -1,6 +1,6 @@
 Vagrant.configure("2") do |config|
   config.vm.box = "puppetlabs_precise64"
-  config.vm.box_url = http://puppet-vagrant-boxes.puppetlabs.com/ubuntu-server-12042-x64-vbox4210.box
+  config.vm.box_url = "http://puppet-vagrant-boxes.puppetlabs.com/ubuntu-server-12042-x64-vbox4210.box"
   
   config.vm.provider :virtualbox do |virtualbox|
     virtualbox.customize ["modifyvm", :id, "--name", "drupal-puppet"]

@@ -1,1 +1,6 @@
+#Hidden Files
 .DS_Store
+
+#Build and project files
+.vagrant
+web/*

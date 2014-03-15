@@ -19,7 +19,9 @@ Vagrant.configure("2") do |config|
   config.vagrant.host = :detect
 
   # Puppet
-  config.vm.provision :puppet, :module_path => "puppet/modules" do |puppet|
+  config.vm.provision :puppet do |puppet|
+    puppet.hiera_config_path = "hiera.yaml"
+    puppet.module_path = "puppet/modules";
     puppet.manifests_path = "puppet/manifests"
     puppet.manifest_file = 'site.pp'
     puppet.options = ["--verbose"]

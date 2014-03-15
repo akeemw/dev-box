@@ -17,7 +17,7 @@ package { ['sass', 'compass', 'bundler']:
   ensure => 'installed',
   provider => 'gem',
 }
- 
+
 # Apache
 class {'apache': }
 
@@ -58,6 +58,38 @@ package { 'grunt-cli':
   provider => 'npm',
 }
 
+package { 'bower':
+  provider => 'npm',
+}
+
+package { 'canvas':
+  provider => 'npm',
+}
+
+package { 'css-sprite':
+  provider => 'npm',
+}
+
+package { 'gulp':
+  provider => 'npm',
+}
+
+package { 'gulpif':
+  provider => 'npm',
+}
+
+package { 'gulp-sass':
+  provider => 'npm',
+}
+
+package { 'gulp-uglify':
+  provider => 'npm',
+}
+
+package { 'gulp-imageoptim':
+  provider => 'npm',
+}
+
 #MySQL
 class { '::mysql::server':
   root_password   => 'root',
@@ -71,10 +103,16 @@ package { ['htop']:
 #Projects
 include projects
 
+projects::create { 'sample_html': }
+
+/* Install Drupal 7 from GIT
+
 projects::create { 'sample':
   git_url => 'http://git.drupal.org/project/drupal.git',
   git_branch => '7.x',
-  conf => { 
+  conf => {
     'securepages_enable' => 0,
   },
 }
+
+*/

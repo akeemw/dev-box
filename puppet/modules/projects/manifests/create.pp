@@ -28,23 +28,27 @@ define projects::create ($basepath = "/srv/web", $git_url = "", $git_branch = ""
     env_variables => [],
   }
 
-  file { "${basepath}/${name}/puppet/import.sql":
-    replace => false,
-  }
+  $import_exists = file("${basepath}/${name}/puppet/import.sql", '/dev/null')
 
-  mysql::db { $name:
-    user     => $name,
-    password => $name,
-    host     => 'localhost',
-    grant    => ['all'],
-    sql      => "${basepath}/${name}/puppet/import.sql",
-    require  => File["${basepath}/${name}/puppet/import.sql"]
-  }
+  if($import_exists != '') {
+    file { "${basepath}/${name}/puppet/import.sql":
+      replace => false,
+    }
 
-  file { "${name}_settings":
-    ensure  => present,
-    path    => "${basepath}/${name}/puppet/local.settings.php",
-    content => template("projects/local.settings.php.erb"),
-    require => File["${basepath}/${name}/puppet"],
+    mysql::db { $name:
+      user     => $name,
+      password => $name,
+      host     => 'localhost',
+      grant    => ['all'],
+      sql      => "${basepath}/${name}/puppet/import.sql",
+      require  => File["${basepath}/${name}/puppet/import.sql"]
+    }
+
+    file { "${name}_settings":
+      ensure  => present,
+      path    => "${basepath}/${name}/puppet/local.settings.php",
+      content => template("projects/local.settings.php.erb"),
+      require => File["${basepath}/${name}/puppet"],
+    }
   }
 }

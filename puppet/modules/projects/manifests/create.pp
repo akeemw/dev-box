@@ -2,11 +2,11 @@ define projects::create ($basepath = "/srv/web", $git_url = "", $git_branch = ""
   file { "${basepath}/${name}":
     ensure => "directory",
   }
-  
+
   file { "${basepath}/${name}/puppet":
     ensure => "directory",
   }
-  
+
   if($git_url) {
     git::reposync { $name:
       source_url      => $git_url,
@@ -19,19 +19,19 @@ define projects::create ($basepath = "/srv/web", $git_url = "", $git_branch = ""
       ensure => "directory",
     }
   }
-  
-  apache::vhost { "${name}.dev":
-    server_name   => "${name}.dev",
+
+  apache::vhost { "${name}.alpha.dev":
+    server_name   => "${name}.alpha.dev",
     serveraliases => [],
     docroot       => "${basepath}/${name}/docroot",
     port          => '80',
     env_variables => [],
   }
-  
+
   file { "${basepath}/${name}/puppet/import.sql":
     replace => false,
   }
-  
+
   mysql::db { $name:
     user     => $name,
     password => $name,
@@ -40,7 +40,7 @@ define projects::create ($basepath = "/srv/web", $git_url = "", $git_branch = ""
     sql      => "${basepath}/${name}/puppet/import.sql",
     require  => File["${basepath}/${name}/puppet/import.sql"]
   }
-  
+
   file { "${name}_settings":
     ensure  => present,
     path    => "${basepath}/${name}/puppet/local.settings.php",

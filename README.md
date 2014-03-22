@@ -26,6 +26,7 @@ A very early version of something to simplify the creation of personal local dev
 * [Example42 Apache](http://forge.puppetlabs.com/example42/apache)
 * [Puppet Labs apt](https://github.com/puppetlabs/puppetlabs-apt)
 * [Puppet Labs Concat](http://forge.puppetlabs.com/puppetlabs/concat)
+* [willdurand Composer](https://github.com/willdurand/puppet-composer)
 * [Drush Puppet](https://drupal.org/project/puppet-drush)
 * [Puppet Labs git](http://forge.puppetlabs.com/example42/git)
 * [Puppet Labs MySQL](http://forge.puppetlabs.com/puppetlabs/mysql)

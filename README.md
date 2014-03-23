@@ -13,8 +13,10 @@ A very early version of something to simplify the creation of personal local dev
 * NodeJS & NPM
 ** GulpJS
 ** GruntJS
+** Bower
 * Ruby & RubyGems
 ** SASS & Compass
+** Bundler
 * PHP & Composer
 ** Drush 7.x
 ** XDebug

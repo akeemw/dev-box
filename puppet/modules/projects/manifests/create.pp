@@ -28,6 +28,11 @@ define projects::create ($basepath = "/srv/web", $git_url = "", $git_branch = ""
     env_variables => [],
   }
 
+  /*
+   * Import a database if we find one otherwise just create a new database with
+   * the project name.
+   */
+
   $import_exists = file("${basepath}/${name}/puppet/import.sql", '/dev/null')
 
   if($import_exists != '') {
@@ -49,6 +54,14 @@ define projects::create ($basepath = "/srv/web", $git_url = "", $git_branch = ""
       path    => "${basepath}/${name}/puppet/local.settings.php",
       content => template("projects/local.settings.php.erb"),
       require => File["${basepath}/${name}/puppet"],
+    }
+  }
+  else {
+    mysql::db { $name:
+      user     => $name,
+      password => $name,
+      host     => 'localhost',
+      grant    => ['all'],
     }
   }
 }

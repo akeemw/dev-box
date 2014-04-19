@@ -43,10 +43,10 @@ php::module {
 class { 'composer': }
 
 exec { 'add-composer-path':
-  command => "sed -i '1i export PATH=\"$HOME/.composer/vendor/bin:$PATH\"' $HOME/.bashrc",
+  command => 'sed -i \'1i export PATH="$HOME/.composer/vendor/bin:$PATH"\' $HOME/.bashrc',
   path    => '/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin',
   provider => 'posix',
-  environment => 'HOME=/root',
+  environment => 'HOME=/home/vagrant',
   require => Class['composer'],
 }
 
@@ -54,7 +54,7 @@ exec { 'install-drush':
   command => "composer global require drush/drush:dev-master",
   path    => '/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin',
   provider => 'posix',
-  environment => 'HOME=/root',
+  environment => 'HOME=/home/vagrant',
   require => Class['composer'],
 }
 

@@ -16,6 +16,7 @@ Vagrant.configure("2") do |config|
   config.vm.hostname = "alpha.dev"
   config.dns.patterns = [/^.*.alpha.dev$/]
   config.vm.synced_folder "./", "/srv", id: "vagrant-root", :nfs => true
+  config.vm.synced_folder "~/", "/vhome"
   config.vagrant.host = :detect
 
   # Puppet

@@ -90,6 +90,8 @@ package { ['htop']:
   ensure => 'installed',
 }
 
+class {'vagrant': }
+
 #Projects
 include projects
 

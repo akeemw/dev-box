@@ -16,10 +16,4 @@ class vagrant (
     if $vim {
         class { '::vagrant::vim': source => $source }
     }
-
-    exec { 'echo "sh /vagrant/message.sh" >> /home/vagrant/.profile':
-        path    => '/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin',
-        unless => 'grep "sh /vagrant/message.sh" /home/vagrant/.profile',
-        onlyif => 'test -f /vagrant/message.sh',
-    }
 }

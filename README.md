@@ -2,24 +2,24 @@ dev-box
 =======
 
 # Vagrant LAMP environment using Puppet for configuration (Ubuntu)
-A very early version of something to simplify the creation of personal local development environments for Drupal
+A very early version of something to simplify the creation of personal local development environments for Drupal.
 
 ## Features
 * Auto-create and import databases /web/[projectname]/puppet/import.sql
 * Auto-clone a git repository in the docroot /web/[projectname]/docroot
-* Automatically create vhosts
+* Automatically create vhosts (Mac only)
 
 ## Notable Installs
 * NodeJS & NPM
-** GulpJS
-** GruntJS
-** Bower
+  * GulpJS
+  * GruntJS
+  * Bower
 * Ruby & RubyGems
-** SASS & Compass
-** Bundler
+  * SASS & Compass
+  * Bundler
 * PHP & Composer
-** Drush 7.x
-** XDebug
+  * Drush 7.x
+  * XDebug
 * htop
 
 ## Documentation
@@ -42,6 +42,7 @@ A very early version of something to simplify the creation of personal local dev
 * [Example42 Puppi](http://forge.puppetlabs.com/example42/puppi)
 * [Puppet Labs stdlib](http://forge.puppetlabs.com/puppetlabs/stdlib)
 * [Lullabot Vagrant](https://github.com/Lullabot/lullapuppet)
+* [Puppet Labs vcsrepo](http://forge.puppetlabs.com/puppetlabs/vcsrepo)
 * [PuPHPet XDebug](https://github.com/puphpet/puphpet-xdebug)
 * [maestrodev wget](http://forge.puppetlabs.com/maestrodev/wget)
 

@@ -9,6 +9,10 @@ class { 'apt':
   stage   => 'first',
 }
 
+class { 'vagrant':
+  stage   => 'first',
+}
+
 # Version Control
 class { 'git': }
 
@@ -89,8 +93,6 @@ class { '::mysql::server':
 package { ['htop']:
   ensure => 'installed',
 }
-
-class {'vagrant': }
 
 #Projects
 include projects

@@ -1,4 +1,10 @@
-define projects::create ($basepath = "/srv/web", $git_url = "", $git_branch = "", $conf = {}) {
+define projects::create (
+  $basepath = "/srv/web",
+  $git_url = "",
+  $git_branch = "master",
+  $conf = {}
+) {
+
   file { "${basepath}/${name}":
     ensure => "directory",
   }
@@ -7,18 +13,30 @@ define projects::create ($basepath = "/srv/web", $git_url = "", $git_branch = ""
     ensure => "directory",
   }
 
+  /*
+   * Clone a repository if we receive one otherwise just create a new folder with
+   * the project name.
+   */
+
   if($git_url) {
-    git::reposync { $name:
-      source_url      => $git_url,
-      branch          => $git_branch,
-      destination_dir => "${basepath}/${name}/docroot",
+    vcsrepo { "${basepath}/${name}/docroot":
+      ensure => present,
+      provider => git,
+      source => $git_url,
+      revision => $git_branch,
+      user => 'vagrant'
     }
   }
+
   else {
     file { "${basepath}/${name}/docroot":
       ensure => "directory",
     }
   }
+
+  /*
+   * Create the virtual host
+   */
 
   apache::vhost { "${name}.alpha.dev":
     server_name   => "${name}.alpha.dev",

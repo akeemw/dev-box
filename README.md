@@ -2,12 +2,17 @@ dev-box
 =======
 
 # Vagrant LAMP environment using Puppet for configuration (Ubuntu)
-A very early version of something to simplify the creation of personal local development environments for Drupal.
+Simplify the creation of a local development environment for Drupal.
 
 ## Features
-* Auto-create and import databases /web/[projectname]/puppet/import.sql
-* Auto-clone a git repository in the docroot /web/[projectname]/docroot
-* Automatically create vhosts (Mac only)
+
+* Fast new project set up
+	* Copy certain dotfiles from host (.ssh, .vimrc, .gitconfig)
+  * Automatically created Virtual Hosts & Document Root
+	* Auto-clone a git repository in the docroot (/web/[projectname]/[docroot])
+	* Auto-create and optionally import databases (/web/[projectname]/puppet/import.sql)
+  * Automatically create Drupal 7 settings.php file with - (/web/[projectname]/puppet/local.settings.php)
+  *
 
 ## Notable Installs
 * NodeJS & NPM
@@ -17,7 +22,7 @@ A very early version of something to simplify the creation of personal local dev
 * Ruby & RubyGems
   * SASS & Compass
   * Bundler
-* PHP & Composer
+* PHP 5.3 & Composer
   * Drush 7.x
   * XDebug
 * htop
@@ -26,7 +31,7 @@ A very early version of something to simplify the creation of personal local dev
 * [Puppet Docs](http://docs.puppetlabs.com/learning/index.html)
 * [Vagrant Docs](http://docs.vagrantup.com/v2/)
 
-## Vagrant Plugins
+## Required Vagrant Plugins
 * https://github.com/BerlinVagrant/vagrant-dns
 
 ## Contributed Puppet Modules

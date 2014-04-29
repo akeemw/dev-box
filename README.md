@@ -48,7 +48,7 @@ Simplify the creation of a local development environment for Drupal.
 * [Puppet Labs stdlib](http://forge.puppetlabs.com/puppetlabs/stdlib)
 * [Lullabot Vagrant](https://github.com/Lullabot/lullapuppet)
 * [Puppet Labs vcsrepo](http://forge.puppetlabs.com/puppetlabs/vcsrepo)
-* [PuPHPet XDebug](https://github.com/puphpet/puphpet-xdebug)
+* [gabrielbull XDebug](https://github.com/gabrielbull/puppet-module-xdebug)
 * [maestrodev wget](http://forge.puppetlabs.com/maestrodev/wget)
 
 ## Connection to the Database

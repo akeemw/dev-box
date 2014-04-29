@@ -1,27 +1,21 @@
-puphpet-xdebug
+puppet-xdebug
 =============
 
 Puppet module for installing XDEBUG PHP Extension
 
-Installs Xdebug Support.
+Installs XDEBUG Support.
 
 Example usage:
 
-    class { 'xdebug':
-      service => 'httpd'
-    }
+```puppet
+class { 'xdebug':
+    default_enable       => '1',
+    remote_enable        => '1',
+    remote_handler       => 'dbgp',
+    remote_host          => 'localhost',
+    remote_port          => '9000',
+    remote_autostart     => '1',
+}
+```
 
-It automatically installs a handy shortcut for CLI debugging:
-
-    $ xdebug foo.php
-
-To disable it, install xdebug as:
-
-    class { 'xdebug':
-      service     => 'httpd',
-      install_cli => false
-    }
-
-Created by: PuPHPet
-
-GitHub: https://github.com/puphpet/puphpet-xdebug
+GitHub: https://github.com/gabrielbull/puppet-module-xdebug

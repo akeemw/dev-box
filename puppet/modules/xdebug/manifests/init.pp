@@ -1,28 +1,28 @@
 class xdebug (
-  $service = 'httpd',
-  $install_cli = $xdebug::params::install_cli
+  $service              = "httpd",
+  $ini_file_path        = $xdebug::params::ini_file_path,
+  $default_enable       = $xdebug::params::default_enable,
+  $remote_enable        = $xdebug::params::remote_enable,
+  $remote_handler       = $xdebug::params::remote_handler,
+  $remote_host          = $xdebug::params::remote_host,
+  $remote_port          = $xdebug::params::remote_port,
+  $remote_autostart     = $xdebug::params::remote_autostart,
+  $remote_connect_back  = $xdebug::params::remote_connect_back,
+  $remote_log           = $xdebug::params::remote_log,
+  $idekey               = $xdebug::params::idekey,
 ) inherits xdebug::params {
+  $zend_extension_module = $xdebug::params::zend_extension_module
 
-  if defined(Package[$method_package]) == false {
-    package { 'xdebug':
-      name    => $xdebug::params::pkg,
-      ensure  => installed,
-      require => Package[$xdebug::params::php],
-      notify  => Service[$service],
-    }
+  package { "$xdebug::params::package":
+    ensure => "installed",
+    require => Package[$xdebug::params::php],
+    notify => File[$ini_file_path],
   }
 
-  # shortcut for xdebug CLI debugging
-  if $xdebug::params::install_cli and defined(File['/usr/bin/xdebug']) == false {
-    file { '/usr/bin/xdebug':
-      ensure  => present,
-      mode    => '+X',
-      source  => 'puppet:///modules/xdebug/cli_alias.erb',
-      require => [
-        Package[$xdebug::params::php],
-        Package[$xdebug::params::pkg]
-      ]
-    }
+  file { "$ini_file_path" :
+    content => template('xdebug/ini_file.erb'),
+    ensure  => present,
+    require => Package[$xdebug::params::package],
+    notify  => Service[$service],
   }
-
 }

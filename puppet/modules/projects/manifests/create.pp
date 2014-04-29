@@ -1,5 +1,6 @@
 define projects::create (
   $basepath = "/srv/web",
+  $docroot = "docroot",
   $git_url = "",
   $git_branch = "master",
   $conf = {}
@@ -41,7 +42,7 @@ define projects::create (
   apache::vhost { "${name}.alpha.dev":
     server_name   => "${name}.alpha.dev",
     serveraliases => [],
-    docroot       => "${basepath}/${name}/docroot",
+    docroot       => "${basepath}/${name}/$docroot",
     port          => '80',
     env_variables => [],
   }

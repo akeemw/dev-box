@@ -2,7 +2,15 @@ dev-box
 =======
 
 # Vagrant LAMP environment using Puppet for configuration (Ubuntu)
-Simplify the creation of a local development environment for Drupal.
+Simplify the creation of a local development environment for Drupal. A drop in replacement for MAMP.
+
+## Installation Instructions
+1. Install [Virtual Box](https://www.virtualbox.org/)
+2. Install [Vagrant](http://www.vagrantup.com/)
+3. Install [Vagrant DNS](https://github.com/BerlinVagrant/vagrant-dns) `vagrant plugin install vagrant-dns`
+4. Clone this repository and `cd` into the directory
+5. Run `vagrant dns --install`
+6. Run `vagrant up`
 
 ## Features
 

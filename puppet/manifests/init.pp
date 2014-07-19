@@ -17,7 +17,7 @@ class { 'vagrant':
 class { 'git': }
 
 # Ruby Gems
-package { ['sass', 'compass', 'bundler']:
+package { ['sass', 'compass', 'bundler', 'jekyll']:
   ensure => 'installed',
   provider => 'gem',
 }

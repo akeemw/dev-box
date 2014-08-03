@@ -1,6 +1,6 @@
 {
   "name": "willdurand-nodejs",
-  "version": "1.6.2",
+  "version": "1.6.5",
   "source": "UNKNOWN",
   "author": "William Durand",
   "license": "MIT",
@@ -9,10 +9,12 @@
   "project_page": "UNKNOWN",
   "dependencies": [
     {
-      "name": "puppetlabs/stdlib"
+      "name": "puppetlabs/stdlib",
+      "version_requirement": ">=3.2.1"
     },
     {
-      "name": "maestrodev/wget"
+      "name": "maestrodev/wget",
+      "version_requirement": ">=1.2.0"
     }
   ],
   "types": [
@@ -20,7 +22,7 @@
   ],
   "checksums": {
     "LICENSE": "623195fef4352bf924f90b64b1e85bc7",
-    "Modulefile": "9adac1ce67e689395d6bf4ae93628672",
+    "Modulefile": "5a7ee636085d51ca48489526ae25bfab",
     "README.md": "35cd0e1add503c084092a3ca926ad9ef",
     "Rakefile": "a1a87b266213b03b33f5e006d4df7925",
     "lib/facter/nodejs_installed_version.rb": "0419087d4f368c0cbe7c3b6f055c88cb",
@@ -28,13 +30,12 @@
     "lib/facter/nodejs_stable_version.rb": "6549e7f69b2bcf4179d67a2a4705a415",
     "lib/puppet/parser/functions/is_binary_download_available.rb": "cb2ca5297ee30e540388afd2d33c92f4",
     "lib/puppet/parser/functions/is_npm_provided.rb": "2dd62319cccd6124c5a23c1b5491fc4b",
-    "lib/puppet/provider/package/npm.rb": "53bd2cd5224471181e934e443b84b7e5",
+    "lib/puppet/provider/package/npm.rb": "b696b1ca6935e51cbf27c15305acfb9b",
     "manifests/init.pp": "4d3aeef6067b6f2572e2a01ff016c04b",
     "manifests/install.pp": "61c66d7619b5933c7218512bc8877082",
     "manifests/params.pp": "7fc6e7d502ee96a1fb54f616ca9cbab2",
     "spec/classes/nodejs_spec.rb": "a94888fc8acc0ec184f5af9f0e4dc586",
     "spec/defines/nodejs_install_spec.rb": "f949def30661239b67ad2dee737cf0eb",
-    "spec/fixtures/manifests/site.pp": "d41d8cd98f00b204e9800998ecf8427e",
     "spec/fixtures/modules/stdlib/CHANGELOG": "344383410cb78409f0c59ecf38e8c21a",
     "spec/fixtures/modules/stdlib/CONTRIBUTING.md": "7fcaaec4913b3d7c123510329ecc4b2d",
     "spec/fixtures/modules/stdlib/Gemfile": "cd4e7462902c9bcce1c053908e3b83c4",

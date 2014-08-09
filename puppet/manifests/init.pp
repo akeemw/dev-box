@@ -21,7 +21,7 @@ package { ['subversion']:
 
 # Ruby Gems
 package { ['sass', 'compass', 'bundler', 'jekyll']:
-  ensure => 'installed',
+  ensure => 'latest',
   provider => 'gem',
 }
 

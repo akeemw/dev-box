@@ -70,17 +70,7 @@ exec { 'install-drush':
   require => Class['composer'],
 }
 
-class { 'xdebug':
-  service              => "apache",
-  ini_file_path        => "/etc/php5/conf.d/xdebug.ini",
-  default_enable       => '1',
-  remote_enable        => '1',
-  remote_handler       => 'dbgp',
-  remote_host          => '33.33.33.1',
-  remote_port          => '9000',
-  remote_autostart     => '0',
-  remote_connect_back  => '1'
-}
+class { 'xdebug': }
 
 #NodeJS
 class { 'nodejs':

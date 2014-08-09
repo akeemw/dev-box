@@ -1,12 +1,12 @@
-# Stages
+# Stage direction
 stage { 'first': }
 
 Stage['first'] -> Stage['main']
 
 # Aptitide
 class { 'apt':
-  always_apt_update => true,
   stage   => 'first',
+  always_apt_update => true
 }
 
 class { 'vagrant':

@@ -30,6 +30,11 @@ class {'apache': }
 
 apache::module { 'rewrite': }
 
+#MySQL
+class { '::mysql::server':
+  root_password   => 'root',
+}
+
 #PHP
 class { 'php':
   service             => 'apache',
@@ -78,23 +83,13 @@ class { 'xdebug':
 }
 
 #NodeJS
-include nodejs
-
-package { 'grunt-cli':
-  provider => 'npm',
+class { 'nodejs':
+  version => 'stable',
 }
 
-package { 'bower':
+package { ['grunt-cli', 'bower', 'gulp']:
   provider => 'npm',
-}
-
-package { 'gulp':
-  provider => 'npm',
-}
-
-#MySQL
-class { '::mysql::server':
-  root_password   => 'root',
+  require => Class['nodejs'],
 }
 
 #Misc

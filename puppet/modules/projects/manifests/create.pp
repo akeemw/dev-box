@@ -52,10 +52,10 @@ define projects::create (
    * the project name.
    */
 
-  $import_exists = file("${basepath}/${name}/puppet/import.sql", '/dev/null')
+  $import_exists = file("/srv/dbimports/${name}.sql", '/dev/null')
 
   if($import_exists != '') {
-    file { "${basepath}/${name}/puppet/import.sql":
+    file { "/srv/dbimports/${name}.sql":
       replace => false,
     }
 
@@ -64,8 +64,8 @@ define projects::create (
       password => $name,
       host     => 'localhost',
       grant    => ['all'],
-      sql      => "${basepath}/${name}/puppet/import.sql",
-      require  => File["${basepath}/${name}/puppet/import.sql"]
+      sql      => "/srv/dbimports/${name}.sql",
+      require  => File["/srv/dbimports/${name}.sql"]
     }
 
     file { "${name}_settings":

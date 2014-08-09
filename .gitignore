@@ -4,3 +4,4 @@
 #Build and project files
 .vagrant
 web/*
+dbimports/*.sql

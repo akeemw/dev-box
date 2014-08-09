@@ -1,11 +1,4 @@
-/* Install Drupal 7 from GIT */
+# Get the structured data:
+$projects = hiera('projects')
 
-/*
-projects::create { 'd7':
-  git_url => 'http://git.drupal.org/project/drupal.git',
-  git_branch => '7.x',
-  conf => {
-    'securepages_enable' => 0,
-  },
-}
-*/
+create_resources(projects::create, $projects)

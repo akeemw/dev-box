@@ -1,0 +1,30 @@
+---
+vagrant::git: true
+vagrant::vim: true
+vagrant::ssh: true
+
+#XDebug Configuration
+xdebug::service: "apache"
+xdebug::ini_file_path: "/etc/php5/conf.d/xdebug.ini"
+xdebug::default_enable: '1'
+xdebug::remote_enable: '1'
+xdebug::remote_handler: 'dbgp'
+xdebug::remote_host: '33.33.33.1'
+xdebug::remote_port: '9000'
+xdebug::remote_autostart: '0'
+xdebug::remote_connect_back: '1'
+
+#Project Installation
+projects:
+  p00:
+    name: "sample"
+  # Install Drupal 7 from GIT
+  #p01:
+    #name: "d7"
+    #git_url: "http://git.drupal.org/project/drupal.git"
+    #git_branch: "7.x"
+  # Sample Additional Project
+  #p02
+    #name: "myproject"
+    #git_url: "http://git.drupal.org/project/drupal.git"
+    #git_branch: "http://git.drupal.org/project/drupal.git"

@@ -11,13 +11,19 @@ Vagrant.configure("2") do |config|
   end
 
   # Network settings
-  config.dns.tld = "dev"
+  config.vagrant.host = :detect
   config.vm.network "private_network", ip: "192.168.50.4"
   config.vm.hostname = "alpha.dev"
-  config.dns.patterns = [/^.*.alpha.dev$/]
+
+  # Vagrant DNS Plugin Settings
+  if Vagrant.has_plugin?("vagrant-dns")
+    config.dns.tld = "dev"
+    config.dns.patterns = [/^.*.alpha.dev$/]
+  end
+
+  # Synced Folders
   config.vm.synced_folder "./", "/srv", id: "vagrant-root", :nfs => true
   config.vm.synced_folder "~/", "/vhome"
-  config.vagrant.host = :detect
 
   # Puppet
   config.vm.provision :puppet do |puppet|

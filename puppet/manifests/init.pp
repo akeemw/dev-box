@@ -15,6 +15,9 @@ class { 'vagrant':
 
 # Version Control
 class { 'git': }
+package { ['subversion']:
+  ensure => 'installed',
+}
 
 # Ruby Gems
 package { ['sass', 'compass', 'bundler', 'jekyll']:

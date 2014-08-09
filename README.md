@@ -25,26 +25,30 @@ Simplify the creation of a local development environments for multi-project Drup
 
 ## Creating a new project
 
-Create a new project by adding a new `project::create` call in `puppet/manifests/site.pp`. Adding a new project will:
+Create a new project by adding a new entry in `puppet/manifests/hiera/common.yaml`.
 
-* Create a create a Apache virtual host
-* An empty MySQL database or one with import data
-	*  A database for a project will be imported if `web/[projectname]/puppet/import.sql` exists before a `vagrant up` or `vagrant provision` is ran
-* Document root for the project in `web/[projectname]/[docroot]`
-* Create a Drupal 7 settings.php file with the database credentials in `web/[projectname]/puppet/local.settings.php`
+### Adding a new project will:
+* Create an Apache virtual host.
+* Create an empty MySQL database or one with import data.
+	*  A database for a project will be imported if `dbimports/[projectname].sql` exists before a `vagrant up` or `vagrant provision` is ran.
+* Create a document root for the project in `web/[projectname]/[docroot]`.
+* Create a Drupal 7 settings.php file with the database credentials in `web/[projectname]/puppet/local.settings.php`.
 
 ### Examples:
 
-Install Drupal 7 from GIT
+Use `common.yaml` to install Drupal 7 from GIT
 
-	projects::create { 'd7':
-		git_url => 'http://git.drupal.org/project/drupal.git',
-		git_branch => '7.x',
-	}
+	projects:
+		p01:
+			name: "d7"
+			git_url: "http://git.drupal.org/project/drupal.git"
+			git_branch: "7.x"
 
 Create blank new project
 
-	projects::create { 'projectname': }
+	projects:
+		p01:
+			name: "sample"
 
 ## Connection to the Database
 Connect to the MySQL database via SSH
@@ -61,8 +65,9 @@ Connect to the MySQL database via SSH
   * GruntJS
   * Bower
 * Ruby & RubyGems
-  * SASS & Compass
-  * Bundler
+  * SASS & Compass (Latest)
+  * Bundler (Latest)
+  * Jeckyll (Latest)
 * PHP 5.3 & Composer
   * Drush 7.x
   * XDebug

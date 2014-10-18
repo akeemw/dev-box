@@ -2,7 +2,8 @@ class vagrant (
     $source = '/vhome',
     $ssh = true,
     $git = true,
-    $vim = true
+    $vim = true,
+    $drush = false,
 ) {
 
     if $ssh {
@@ -15,5 +16,9 @@ class vagrant (
 
     if $vim {
         class { '::vagrant::vim': source => $source }
+    }
+    
+    if $drush {
+        class { '::vagrant::drush': source => $source }
     }
 }

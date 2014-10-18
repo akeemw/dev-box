@@ -2,6 +2,7 @@
 vagrant::git: true
 vagrant::vim: true
 vagrant::ssh: true
+vagrant::drush: true
 
 #XDebug Configuration
 xdebug::service: "apache"

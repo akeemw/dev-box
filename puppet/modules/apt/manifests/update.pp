@@ -5,5 +5,8 @@ class apt::update {
     command     => "${apt::params::provider} update",
     logoutput   => 'on_failure',
     refreshonly => true,
+    timeout     => $apt::update_timeout,
+    tries       => $apt::update_tries,
+    try_sleep   => 1
   }
 }

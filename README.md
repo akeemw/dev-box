@@ -25,6 +25,7 @@ Simplify the creation of a local development environments for multi-project Drup
 
 ## Optional Add-ons
 * [Vagrant Notify](https://github.com/fgrehm/vagrant-notify)
+* [Terminal Notifier](https://github.com/alloy/terminal-notifier)
 
 ## Creating a new project
 

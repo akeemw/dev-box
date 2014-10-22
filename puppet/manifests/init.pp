@@ -62,8 +62,9 @@ exec { 'add-composer-path':
   require => Class['composer'],
 }
 
+# Install Drush 6.x
 exec { 'install-drush':
-  command => "composer global require drush/drush:dev-master",
+  command => "composer global require drush/drush:6.*",
   path    => '/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin',
   provider => 'posix',
   environment => 'HOME=/home/vagrant',

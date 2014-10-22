@@ -85,6 +85,7 @@ package { ['grunt-cli', 'bower', 'gulp']:
 
 #Misc
 package { ['htop']:
+package { ['htop', 'pv', 'libnotify-bin']:
   ensure => 'installed',
 }
 

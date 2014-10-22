@@ -23,6 +23,9 @@ Simplify the creation of a local development environments for multi-project Drup
 5. Run `vagrant dns --install`
 6. Run `vagrant up`
 
+## Optional Add-ons
+* [Vagrant Notify](https://github.com/fgrehm/vagrant-notify)
+
 ## Creating a new project
 
 Create a new project by adding a new entry in `puppet/manifests/hiera/common.yaml`.

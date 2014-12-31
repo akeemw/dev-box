@@ -38,9 +38,9 @@ Create a new project by adding a new entry in `puppet/manifests/hiera/common.yam
 * Create a document root for the project in `web/[projectname]/[docroot]`.
 * Create a Drupal 7 settings.php file with the database credentials in `web/[projectname]/puppet/local.settings.php`.
 
-### Examples:
+### Examples using `common.yaml`:
 
-Use `common.yaml` to install Drupal 7 from GIT
+#### Install Drupal 7 from GIT
 
 	projects:
 		p01:
@@ -48,11 +48,15 @@ Use `common.yaml` to install Drupal 7 from GIT
 			git_url: "http://git.drupal.org/project/drupal.git"
 			git_branch: "7.x"
 
-Create blank new project
+**Result:** http://d7.alpha.dev/
+
+#### Create blank project named "sample"
 
 	projects:
 		p01:
 			name: "sample"
+
+**Result:** http://sample.alpha.dev/
 
 ## Connection to the Database
 Connect to the MySQL database via SSH
@@ -89,9 +93,6 @@ other devices on the same network (e.g. a smartphone for testing purposes).
 ## Other Documentation
 * [Puppet Docs](http://docs.puppetlabs.com/learning/index.html)
 * [Vagrant Docs](http://docs.vagrantup.com/v2/)
-
-## Required Vagrant Plugins
-* [Vagrant DNS](https://github.com/BerlinVagrant/vagrant-dns)
 
 ## Contributed Puppet Modules
 * [Example42 Apache](http://forge.puppetlabs.com/example42/apache)

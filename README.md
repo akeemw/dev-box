@@ -63,6 +63,15 @@ Connect to the MySQL database via SSH
 	* Username: vagrant
 	* Password: vagrant
 
+## Port forwards
+Port forwarding has been configured to allow HTTP access into the Vagrant box by
+other devices on the same network (e.g. a smartphone for testing purposes).
+
+| Host Port | Guest Port | Note     |
+|-----------|------------|-----------
+| 9999      | 80         | External access (e.g. projectname.127.0.0.1.xip.io:9999) |
+| 3333      | 3000       | [BrowserSync](www.browsersync.io) (e.g. projectname.127.0.0.1.xip.io:3333) |
+
 ## Notable Machine Installations
 * NodeJS & NPM
   * GulpJS

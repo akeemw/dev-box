@@ -13,6 +13,10 @@ Vagrant.configure("2") do |config|
   # Network settings
   config.vagrant.host = :detect
   config.vm.network "private_network", ip: "192.168.50.4"
+  config.vm.network "forwarded_port", guest: 80, host: 9999,
+    auto_correct: true
+  config.vm.network "forwarded_port", guest: 3000, host: 3333,
+    auto_correct: true
   config.vm.hostname = "alpha.dev"
 
   # Vagrant DNS Plugin Settings

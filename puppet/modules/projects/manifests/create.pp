@@ -41,7 +41,7 @@ define projects::create (
 
   apache::vhost { "${name}.alpha.dev":
     server_name   => "${name}.alpha.dev",
-    serveraliases => [],
+    serveraliases => ["${name}.*.xip.io"],
     docroot       => "${basepath}/${name}/$docroot",
     port          => '80',
     env_variables => [],

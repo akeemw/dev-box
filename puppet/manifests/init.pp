@@ -1,13 +1,14 @@
-# Stage direction
-stage { 'first': }
-
-Stage['first'] -> Stage['main']
-
 # Aptitide
-class { 'apt':
-  stage   => 'first',
-  always_apt_update => true
-}
+
+
+# Avoid a apt:ppa dependancy cycle and the fact that the current apt list doesn't have 
+# 'python-software-properties' in it. https://tickets.puppetlabs.com/browse/MODULES-1258
+exec { 'first_apt_update':
+  command     => "/usr/bin/apt-get update",
+} -> Package <||>
+
+class { 'apt': }
+
 
 class { 'dotfiles': }
 

@@ -30,17 +30,17 @@ class nodejs (
 ) {
 
   nodejs::install { "nodejs-${version}":
-    version       => $version,
-    target_dir    => $target_dir,
-    with_npm      => $with_npm,
-    make_install  => $make_install,
+    version      => $version,
+    target_dir   => $target_dir,
+    with_npm     => $with_npm,
+    make_install => $make_install,
   }
 
   $node_version = $version ? {
-    undef     => $::nodejs_stable_version,
-    'stable'  => $::nodejs_stable_version,
-    'latest'  => $::nodejs_latest_version,
-    default   => $version
+    undef    => $::nodejs_stable_version,
+    'stable' => $::nodejs_stable_version,
+    'latest' => $::nodejs_latest_version,
+    default  => $version
   }
 
   $nodejs_version_path = "/usr/local/node/node-${$node_version}"
@@ -60,5 +60,4 @@ class nodejs (
     content => template("${module_name}/nodejs.sh.erb"),
     require => File[$nodejs_default_path],
   }
-
 }

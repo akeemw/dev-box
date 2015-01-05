@@ -13,14 +13,15 @@ Puppet::Type.type(:package).provide :npm, :parent => Puppet::Provider::Package d
       environment :HOME => "/root"
     end
   else
-    optional_commands :npm => 'npm'
+    optional_commands :npm => '/usr/local/node/node-default/bin/npm'
   end
 
   def self.npmlist
     begin
       output = execute([command(:npm), 'list', '--json', '--global'], {:combine => false})
       # ignore any npm output lines to be a bit more robust
-      output = PSON.parse(output.lines.select{ |l| l =~ /^((?!^npm).*)$/}.join("\n"))
+      # set max_nesting to 100 so parsing will not fail if we have module with big dependencies tree
+      output = PSON.parse(output.lines.select{ |l| l =~ /^((?!^npm).*)$/}.join("\n"), {:max_nesting => 100})
       @npmlist = output['dependencies'] || {}
     rescue Exception => e
       Puppet.debug("Error: npm list --json command error #{e.message}")

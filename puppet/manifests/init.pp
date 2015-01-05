@@ -1,6 +1,5 @@
 # Aptitide
 
-
 # Avoid a apt:ppa dependancy cycle and the fact that the current apt list doesn't have 
 # 'python-software-properties' in it. https://tickets.puppetlabs.com/browse/MODULES-1258
 exec { 'first_apt_update':
@@ -14,11 +13,12 @@ class { 'dotfiles': }
 
 # Version Control
 class { 'git': }
+
 package { ['subversion']:
   ensure => 'installed',
 }
 
-# Ruby Gems
+# Ruby
 package { ['sass', 'compass', 'bundler', 'jekyll']:
   ensure => 'latest',
   provider => 'gem',
@@ -31,14 +31,14 @@ apache::module { 'rewrite': }
 
 #MySQL
 class { '::mysql::server':
-  root_password   => 'root',
+ root_password   => 'root',
 }
 
 #PHP
 class { 'php':
-  service             => 'apache',
-  service_autorestart => false,
-  module_prefix       => '',
+ service             => 'apache',
+ service_autorestart => false,
+ module_prefix       => '',
 }
 
 php::module {
@@ -62,9 +62,10 @@ exec { 'add-composer-path':
   require => Class['composer'],
 }
 
-# Install Drush 6.x
+#Install Drush 6.x
 exec { 'install-drush':
   command => "composer global require drush/drush:6.*",
+  user => "vagrant",
   path    => '/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin',
   provider => 'posix',
   environment => 'HOME=/home/vagrant',

@@ -39,6 +39,7 @@ class { 'php':
  service             => 'apache',
  service_autorestart => false,
  module_prefix       => '',
+ #require => Apt::Ppa['ppa:ondrej/php5-oldstable']
 }
 
 php::module {

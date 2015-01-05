@@ -25,7 +25,8 @@ define projects::create (
       provider => git,
       source => $git_url,
       revision => $git_branch,
-      user => 'vagrant'
+      user => 'vagrant',
+      require => Class['::dotfiles::ssh'],
     }
   }
 

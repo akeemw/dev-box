@@ -9,9 +9,7 @@ class { 'apt':
   always_apt_update => true
 }
 
-class { 'vagrant':
-  stage   => 'first',
-}
+class { 'dotfiles': }
 
 # Version Control
 class { 'git': }
@@ -89,6 +87,4 @@ package { ['htop', 'pv', 'libnotify-bin']:
 }
 
 #Projects
-include projects
-
-import "site"
+class {'projects': }

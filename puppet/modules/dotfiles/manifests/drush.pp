@@ -1,4 +1,4 @@
-class vagrant::drush ( $source = '/vhome') {
+class dotfiles::drush ( $source = '/vhome') {
 
     file { "$source/.drush":
         ensure => directory,

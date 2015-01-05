@@ -1,4 +1,4 @@
-class vagrant::git ($source = '/vhome') {
+class dotfiles::git ($source = '/vhome') {
 
     if !defined(Package['git']) { package { 'git': } }
 

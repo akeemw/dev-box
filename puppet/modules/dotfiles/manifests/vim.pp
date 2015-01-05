@@ -1,4 +1,4 @@
-class vagrant::vim ( $source = '/vhome') {
+class dotfiles::vim ( $source = '/vhome') {
 
     if !defined(Package['vim']) { package { 'vim': } }
 

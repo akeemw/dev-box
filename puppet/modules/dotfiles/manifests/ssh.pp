@@ -1,4 +1,4 @@
-class vagrant::ssh ( $source = '/vhome') {
+class dotfiles::ssh ( $source = '/vhome') {
 
     file { "$source/.ssh":
         ensure => directory,

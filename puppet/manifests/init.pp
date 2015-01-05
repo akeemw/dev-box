@@ -55,6 +55,7 @@ class { 'composer': }
 
 exec { 'add-composer-path':
   command => 'sed -i \'1i export PATH="$HOME/.composer/vendor/bin:$PATH"\' $HOME/.bashrc',
+  user => "vagrant",
   path    => '/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin',
   provider => 'posix',
   environment => 'HOME=/home/vagrant',

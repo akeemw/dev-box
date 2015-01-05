@@ -8,6 +8,8 @@ exec { 'first_apt_update':
 
 class { 'apt': }
 
+#PHP 5.4 for Ubuntu 12.04
+#apt::ppa {'ppa:ondrej/php5-oldstable': }
 
 class { 'dotfiles': }
 

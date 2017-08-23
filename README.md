@@ -1,4 +1,4 @@
-Dev Box Alpha
+Dev Box Alpha (Deprecated - Do not use)
 =======
 
 A personal LAMP (Ubuntu) development environment powered by [Vagrant](http://www.vagrantup.com/) and [Puppet](http://puppetlabs.com/puppet/what-is-puppet).
